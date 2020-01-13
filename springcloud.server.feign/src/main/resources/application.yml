@@ -1,0 +1,19 @@
+eureka:
+   client:
+      serviceUrl:
+        defaultZone: http://localhost:8000/eureka/
+server:
+   port: 8902
+spring:
+  application:
+    name: service-feign
+  #代码调用路径追踪,连接到追踪服务器
+  zipkin:
+    base-url: http://localhost:8889
+feign:
+    httpclient:
+      enabled: true
+      
+      #开启断路器功能
+    hystrix:
+      enabled: true

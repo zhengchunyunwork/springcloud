@@ -1,0 +1,28 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/
+server:
+  port: 8888
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/zhengchunyunwork/Test
+          searchPaths:  test/spring-cloud/helloworldConfig
+#          username: zhengchunyun
+#          password: zhengchunyun
+  application:
+    name: config-server
+  #RabbitMQ的连接和用户信息
+#  rabbitmq:
+#     host: localhost
+#     port: 5672
+#     username: guest
+#     password: guest
+     
+management:
+  security:
+    enabled: false  #忽略权限拦截

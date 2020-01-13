@@ -1,0 +1,22 @@
+server:
+  port: 8000
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false ##不向注册中心注册自己
+    fetch-registry: false       #该服务维护服务实例，不需要检索服务
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+     #关闭自我保护
+#     enable-self-preservation: false
+     #清理间隔
+#     eviction-interval-timer-in-ms: 5000
+     
+     
+##登陆注册服务器认证，设置用户名密码
+#security.basic.enabled=true
+#security.user.name=admin
+#security.user.password=admin

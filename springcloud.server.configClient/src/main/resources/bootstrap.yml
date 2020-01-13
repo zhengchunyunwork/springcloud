@@ -1,0 +1,33 @@
+server:
+  port: 8881
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/
+spring:
+  application:
+    name: config-client
+    
+    #RabbitMQ的连接和用户信息
+#  rabbitmq:
+#     host: localhost
+#     port: 5672
+#     username: guest
+#     password: guest
+       
+  cloud:
+    config:
+      label: master
+      profile: dev
+      #直接访问配置服务器
+#      uri: http://localhost:8888/
+      #将配置客户端和配置服务器都注册到Eureka，通过Eureka访问配置application.name就能访问到配置服务器
+      discovery:
+          enabled: true
+          serviceId: config-server
+  
+management:
+  security:
+    enabled: false
+    
